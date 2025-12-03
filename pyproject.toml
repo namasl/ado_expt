@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "food_bars"
+version = "0.1.0"
+description = "A package to calculate nutrition and cost of food bars."
+authors = [
+    { name="Nick Masluk", email="namasluk@us.ibm.com" }
+]
+readme = "README.md"
+license = { text = "MIT" }
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[project.entry-points."ado.custom_experiments"]
+#This should be python file with your decorated function(s).
+my_experiment = "food_bars.bar_details" 
