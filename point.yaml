@@ -1,0 +1,9 @@
+entity:
+  sugar: 2
+  oats: 20.5
+  walnut: 5.3
+  banana: 4.1
+  shape: 0
+experiments:
+- actuatorIdentifier: custom_experiments
+  experimentIdentifier: bar_details
