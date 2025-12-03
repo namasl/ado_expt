@@ -53,7 +53,7 @@ SHAPES = {
 }
 
 
-@custom_experiment(output_property_identifiers=["kcal", "sugar", "protein", "fiber", "fat", "potassium", "cost"])
+@custom_experiment(output_property_identifiers=["kcal", "sugar", "protein", "fiber", "fat", "potassium", "cost", "allergen", "shape"])
 def bar_details(sugar: float, oats: float, walnut: float, banana: float, shape: int) -> dict[str, float | bool]:
     """"Get details about food bar based on amount of ingredients used."""
     amounts = {
