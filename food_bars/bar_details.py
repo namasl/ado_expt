@@ -61,10 +61,10 @@ def bar_details(sugar: float, oats: float, walnut: float, banana: float, shape: 
         "sugar": sugar,
         "oats": oats,
         "walnut": walnut,
-        "dehydrated_banana": banana,
+        "banana": banana,
     }
 
-    totals = {
+    details = {
         "kcal": 0.0,
         "sugar": 0.0,
         "protein": 0.0,
@@ -77,12 +77,14 @@ def bar_details(sugar: float, oats: float, walnut: float, banana: float, shape: 
     }
 
     for ingredient, grams in amounts.items():
-        for nutrient in totals:
-            if nutrient == "allergen":
+        for dd in details:
+            if dd == "shape":
+                continue
+            if dd == "allergen":
                 if grams > 0:
                     # If any allergen is present, this will become True
-                    totals[nutrient] |= INGREDIENTS[ingredient][nutrient]
-            else:
-                totals[nutrient] += INGREDIENTS[ingredient][nutrient] * grams
+                    details[dd] |= INGREDIENTS[ingredient][dd]
+                continue
+            details[dd] += INGREDIENTS[ingredient][dd] * grams
 
-    return totals
+    return details
