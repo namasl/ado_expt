@@ -1,4 +1,4 @@
-from ado.orchestrator.modules.actuators.custom_experiments import custom_experiment
+from orchestrator.modules.actuators.custom_experiments import custom_experiment
 
 # per-gram ingredient characteristics
 INGREDIENTS = {
