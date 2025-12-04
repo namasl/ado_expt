@@ -1,0 +1,30 @@
+# Copyright (c) IBM Corporation
+# SPDX-License-Identifier: MIT
+
+entitySpace:
+- identifier: sugar
+  propertyDomain:
+    domainRange: [0, 3]
+    variableType: CONTINUOUS_VARIABLE_TYPE
+- identifier: oats
+  propertyDomain:
+    domainRange: [30, 57.2]
+    variableType: CONTINUOUS_VARIABLE_TYPE
+- identifier: walnut
+  propertyDomain:
+    domainRange: [0, 23.1]
+    variableType: CONTINUOUS_VARIABLE_TYPE
+- identifier: banana
+  propertyDomain:
+    domainRange: [0, 34.2]
+    variableType: CONTINUOUS_VARIABLE_TYPE
+- identifier: shape
+  propertyDomain:
+    domainRange: [0, 3]
+    variableType: DISCRETE_VARIABLE_TYPE
+    interval: 1
+experiments:
+- actuatorIdentifier: custom_experiments
+  experimentIdentifier: bar_details
+metadata:
+  name: 'my_bar_space_name'

@@ -1,4 +1,6 @@
 from orchestrator.modules.actuators.custom_experiments import custom_experiment
+from orchestrator.schema.property import ConstitutiveProperty
+from orchestrator.schema.domain import PropertyDomain, VariableTypeEnum
 
 # per-gram ingredient characteristics
 INGREDIENTS = {
@@ -53,7 +55,51 @@ SHAPES = {
 }
 
 
-@custom_experiment(output_property_identifiers=["kcal", "sugar", "protein", "fiber", "fat", "potassium", "cost", "allergen", "shape"])
+@custom_experiment(
+    required_properties=[
+        ConstitutiveProperty(
+            identifier="sugar",
+            propertyDomain=PropertyDomain(
+                variableType=VariableTypeEnum.CONTINUOUS_VARIABLE_TYPE,
+                domainRange=[0, 15.8]
+            )
+        ),
+        ConstitutiveProperty(
+            identifier="oats",
+            propertyDomain=PropertyDomain(
+                variableType=VariableTypeEnum.CONTINUOUS_VARIABLE_TYPE,
+                domainRange=[1.5, 57.2]
+            )
+        ),
+        ConstitutiveProperty(
+            identifier="walnut",
+            propertyDomain=PropertyDomain(
+                variableType=VariableTypeEnum.CONTINUOUS_VARIABLE_TYPE,
+                domainRange=[0, 23.1]
+            )
+        ),
+        ConstitutiveProperty(
+            identifier="banana",
+            propertyDomain=PropertyDomain(
+                variableType=VariableTypeEnum.CONTINUOUS_VARIABLE_TYPE,
+                domainRange=[0, 34.2]
+            )
+        ),
+        ConstitutiveProperty(
+            identifier="shape",
+            propertyDomain=PropertyDomain(
+                variableType=VariableTypeEnum.DISCRETE_VARIABLE_TYPE,
+                domainRange=[0, 3],
+                interval=1
+            )
+        ),
+    ],
+    output_property_identifiers=[
+        "kcal", "sugar", "protein", "fiber", "fat", "potassium", "cost", "allergen", "shape"
+    ],
+    metadata={'description': 'Get details about a food bar based on makeup.'},
+    use_ray=True,
+)
 def bar_details(sugar: float, oats: float, walnut: float, banana: float, shape: int) -> dict[str, float | bool]:
     """"Get details about food bar based on amount of ingredients used."""
     amounts = {
