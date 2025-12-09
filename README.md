@@ -25,6 +25,9 @@ pip install -e .
 
 ## Do stuff
 
+> [!NOTE]
+> Data and metadata from ado are stored in `~/.config/ado/` (Linux) or `~/Library/Application Support/ado/` (Mac).
+
 ### Check actuator
 
 In root of `ado_expt`, ensure the `bar_details` actuator shows up (under "EXPERIMENT ID").
@@ -75,22 +78,22 @@ Create an operator using the discovery space we just created. This will run a se
 ado create operation -f operation.yaml --use-latest space
 ```
 
-Results from running the operator are stored in a `datacontainer` resource. Get the ID of the `datacontainer`, which will look something like `datacontainer-412798a4`.
+See all operations
+```bash
+ado get operation
+```
+
+Results from running the operator are stored in a `datacontainer` resource. Get the ID of the `datacontainer`, which will look something like `datacontainer-ae536e7d`.
 ```bash
 ado show related operation --use-latest
 ```
 
 Get results from the `datacontainer`
 ```bash
-ado describe datacontainer datacontainer-412798a4
+ado describe datacontainer datacontainer-ae536e7d
 ```
 
 To see details of all configurations tested in the operation
 ```bash
 ado show entities operation --use-latest
-```
-
-See a list of all operations executed
-```bash
-ado get operation
 ```
