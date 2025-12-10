@@ -55,6 +55,7 @@ SHAPES = {
 }
 
 
+# This creates a custom ado "actuator"
 @custom_experiment(
     required_properties=[
         ConstitutiveProperty(

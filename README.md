@@ -30,7 +30,7 @@ pip install -e .
 
 ### Check actuator
 
-In root of `ado_expt`, ensure the `bar_details` actuator shows up (under "EXPERIMENT ID").
+In root of `ado_expt`, ensure the `bar_details` actuator shows up (under "EXPERIMENT ID"). This is our custom actuator which comes from the `@custom_experiment` decorator applied to our function which runs an experiment.
 ```bash
 ado get actuators --details
 ```
@@ -58,7 +58,7 @@ Create the space defined in `space.yaml`. This will be a subspace of the entire 
 ```bash
 ado create space -f space.yaml --use-default-sample-store
 ```
-Grab the space identifier printed out with that command, it will look something like `space-26dd95-default`.
+Grab the space identifier printed out with that command, it will look something like `space-9418e2-default`.
 
 See what spaces are available
 ```bash
@@ -73,7 +73,13 @@ The details here will match what is defined in `space.yaml` which we used to cre
 
 ### Run operation
 
-Create an operator using the discovery space we just created. This will run a set of experiments as defined in `operation.yaml`.
+See what operators are available
+```bash
+ado get operator
+```
+We will use the `ray_tune` operator, which is an `explore` type operator, in order to sample and measure entities in our discovery space.
+
+Using this operator, we will perform an operation using the discovery space we just created. This will run a set of experiments as defined in `operation.yaml`. We will add the argument `--use-latest space` to utilize the space we just created, ignoring the space that is hard-coded in `operation.yaml`. Despite not needing the space specified in `operation.yaml`, we will have a validation error if a space is not specified in the YAML.
 ```bash
 ado create operation -f operation.yaml --use-latest space
 ```

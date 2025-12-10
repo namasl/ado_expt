@@ -1,16 +1,16 @@
 spaces:
-  - space-26dd95-default
+  - space-dummy_space_name_to_appease_validator
 operation:
   module:
-    operatorName: "ray_tune"
-    operationType: "search"
+    operatorName: ray_tune # This is an explore type operator
+    operationType: search
   parameters:
     tuneConfig:
-      metric: "fiber"
-      mode: 'min'
+      metric: fiber
+      mode: min
       num_samples: 10
       max_concurrent_trials: 2
       search_alg:
         name: nevergrad
         params:
-            optimizer: "CMA"
+            optimizer: CMA
