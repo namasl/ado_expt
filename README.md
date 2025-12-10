@@ -103,3 +103,8 @@ To see details of all configurations tested in the operation
 ```bash
 ado show entities operation --use-latest
 ```
+
+To see results from all operations in a discovery space, find the space ID with `ado get space`, then do
+```bash
+ado show entities space space-9418e2-default
+```
