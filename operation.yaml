@@ -12,5 +12,6 @@ operation:
       max_concurrent_trials: 2
       search_alg:
         name: nevergrad
-        params:
-            optimizer: CMA
+        params: # https://docs.ray.io/en/latest/tune/api/doc/ray.tune.search.nevergrad.NevergradSearch.html#ray.tune.search.nevergrad.NevergradSearch
+            # Never define space, metric, or mode, ado will handle these
+            optimizer: CMA # https://facebookresearch.github.io/nevergrad/optimizers_ref.html#optimizers
